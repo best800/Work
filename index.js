@@ -1,6 +1,6 @@
 const express = require("express")
 const requestify = require('requestify');  
-const port = process.env.port || 5500;
+var port =  process.env.port || 5500;
 const cors = require('cors')
 const app = express();
 
@@ -20,10 +20,10 @@ app.get('/nifty',(req,res)=>{
     method: 'GET',
     headers:headers,
     dataType: 'json'        
-}).then(function(res){
-   return res.getBody()
-})
+}).then(function(response){
+    res.send(JSON.stringify(response.getBody()));
 
+})
 })
 
 app.listen(port,()=>{
