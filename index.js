@@ -18,7 +18,7 @@ app.get('/',(req,res)=>{
     headers:headers,
     dataType: 'json'        
 }).then(function(response){
-    res.send(JSON.stringify(response.getBody()));
+    res.json(response.getBody());
 })
 })
 
