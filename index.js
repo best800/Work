@@ -16,7 +16,7 @@ var headers = {
 }
 
 app.get('/',(req,res)=>{
- fetch('https://www.nseindia.com/api/option-chain-indices?symbol=NIFTY').then((resp) =>res.json()).then((resf)=>res.send(resf))
+ fetch('https://www.nseindia.com/api/option-chain-indices?symbol=NIFTY').then((resp) =>resp.json()).then((resf)=>res.send(resf))
 })
 
 
