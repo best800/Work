@@ -1,4 +1,5 @@
 const express = require("express")
+const fetch = require('node-fetch')
 const requestify = require('requestify');  
 var port =  process.env.PORT || 5500;
 const cors = require('cors')
@@ -15,7 +16,7 @@ var headers = {
 }
 
 app.get('/',(req,res)=>{
-  res.send('hello from render')
+ fetch('https://www.nseindia.com/api/option-chain-indices?symbol=NIFTY').then((resp) =>res.json()).then((resf)=>res.send(resf))
 })
 
 
