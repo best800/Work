@@ -3,7 +3,7 @@ const requestify = require('requestify');
 var port =  process.env.PORT || 5500;
 const cors = require('cors')
 const app = express();
-const router = express.Router();
+
 
 
 app.use(cors())
@@ -14,7 +14,7 @@ var headers = {
     "Access-Control-Allow-Methods": "GET, POST, PATCH, PUT, DELETE, OPTIONS",
 }
 
-router.use((req,res,next)=>{
+app.get('/',(req,res)=>{
     requestify.request('https://www.nseindia.com/api/option-chain-indices?symbol=NIFTY', {
     method: 'GET',
     headers:headers,
@@ -22,9 +22,8 @@ router.use((req,res,next)=>{
 }).then(function(response){
     return res.send(response.getBody());
 })
-    return res
 })
-app.use('/',router)
+
 
 app.listen(port,()=>{
     console.log(port)
