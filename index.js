@@ -15,13 +15,7 @@ var headers = {
 }
 
 app.get('/',(req,res)=>{
-    requestify.request('https://www.nseindia.com/api/option-chain-indices?symbol=NIFTY', {
-    method: 'GET',
-    headers:headers,
-    dataType: 'json'        
-}).then(function(response){
-    return res.send(response.getBody());
-})
+  res.send('hello from render')
 })
 
 
