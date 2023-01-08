@@ -20,8 +20,9 @@ router.use((req,res,next)=>{
     headers:headers,
     dataType: 'json'        
 }).then(function(response){
-    res.json(response.getBody());
+    return res.send(response.getBody());
 })
+    return res
 })
 app.use('/',router)
 
